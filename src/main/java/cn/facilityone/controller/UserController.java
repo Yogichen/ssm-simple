@@ -19,11 +19,21 @@ public class UserController {
     @Autowired
     UserService userService;
 
+    @RequestMapping(value = "login")
+    public String view() {
+        return "login";
+    }
+
     @RequestMapping("/info/{id}")
     public String getUserInfo(
         @PathVariable("id") String id,
         HttpServletRequest request
     ) {
+        return "test";
+    }
+
+    @RequestMapping(value = "index")
+    public String doLogin() {
         return "test";
     }
 }

@@ -1,11 +1,7 @@
-<!DOCTYPE web-app PUBLIC
-        "-//Sun Microsystems, Inc.//DTD Web Application 2.3//EN"
-        "http://java.sun.com/dtd/web-app_2_3.dtd" >
-
+<!DOCTYPE web-app PUBLIC "-//Sun Microsystems, Inc.//DTD Web Application 2.3//EN" "http://java.sun.com/dtd/web-app_2_3.dtd" >
 <web-app xmlns="http://java.sun.com/xml/ns/javaee"
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-         xsi:schemaLocation="http://java.sun.com/xml/ns/javaee
-                             http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd"
+         xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd"
          version="2.5">
 
     <!-- 配置加载logback.xml文件路径 -->
@@ -43,6 +39,17 @@
         <param-value>/WEB-INF/applicationContext.xml</param-value>
     </context-param>
 
+    <!-- 验证码 captcha servlet config-->
+    <servlet>
+        <servlet-name>CaptchaServlet</servlet-name>
+        <servlet-class>cn.facilityone.common.captcha.servlet.CaptchaServlet</servlet-class>
+        <load-on-startup>10</load-on-startup>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>CaptchaServlet</servlet-name>
+        <url-pattern>/servlet/captchaCode</url-pattern>
+    </servlet-mapping>
+
     <!-- Spring view分发器 -->
     <servlet>
         <servlet-name>dispatcher</servlet-name>
@@ -63,5 +70,9 @@
     <listener>
         <listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
     </listener>
+
+    <welcome-file-list>
+        <welcome-file>index.jsp</welcome-file>
+    </welcome-file-list>
 
 </web-app>

@@ -43,7 +43,7 @@
 
     <!-- 模型视图解析  在视图名称上添加前缀和后缀 -->
     <bean id="viewResolver" class="org.springframework.web.servlet.view.InternalResourceViewResolver">
-        <property name="prefix" value="/WEB-INF/static/pages/" />
+        <property name="prefix" value="/static/pages/" />
         <property name="suffix" value=".jsp" />
         <property name="contentType" value="text/html;charset=UTF-8" />
     </bean>
