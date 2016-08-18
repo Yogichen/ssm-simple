@@ -35,13 +35,14 @@ public class CaptchaUtil {
 	 * 生成随机图片
 	 */
 	public BufferedImage genRandomCodeImage(StringBuffer randomCode) {
-		// BufferedImage类是具有缓冲区的Image类
+		// BufferedImage类是具有缓冲区的Image类，TYPE_INT_BGR表示一个具有 8 位 RGB 颜色分量的图像
 		BufferedImage image = new BufferedImage(width, height,
 				BufferedImage.TYPE_INT_BGR);
 		// 获取Graphics对象,便于对图像进行各种绘制操作
 		Graphics g = image.getGraphics();
 		// 设置背景色
 		g.setColor(getRandColor(200, 250));
+		// 填充指定的矩形
 		g.fillRect(0, 0, width, height);
 
 		// 设置干扰线的颜色
